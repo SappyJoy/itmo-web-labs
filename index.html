@@ -1,11 +1,279 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
-<title>Initial Title</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lab work #1</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      /*border: 0;*/
+    }
+
+    body {
+      background-color: #FFFCF2;
+      display: table;
+      width: 100%;
+    }
+
+    table {
+      width: 100%;
+    }
+
+    #before-student, #after-student {
+      width: 20%;
+    }
+
+    .left-col-1, .right-col-1 {
+      width: 20%;
+    }
+
+    .left-col-2, .right-col-2 {
+      width: 5%;
+    }
+
+    #header {
+      background-color: #EEF0F2;
+      width: 900px;
+      display: table-cell;
+      text-align: left;
+      padding: 40px 60px;
+
+      border-top-left-radius: 37px 140px;
+      border-top-right-radius: 23px 130px;
+      border-bottom-left-radius: 110px 19px;
+      border-bottom-right-radius: 120px 24px;
+      border: dashed 3px #1C1C1C;
+
+      font-size: 17px;
+      line-height: 28px;
+      transform: rotate(-1deg);
+      box-shadow: 3px 15px 8px -10px rgba(0, 0, 0, 0.3);
+      transition: all 0.13s ease-in;
+    }
+
+    #header:hover {
+      transform: translateY(-10px) rotate(1deg);
+      box-shadow: 3px 15px 8px -10px rgba(0, 0, 0, 0.3);
+    }
+
+    #coordinate-axes {
+      position: relative;
+      width: 60%;
+      height: 0;
+      padding-bottom: 60%;
+    }
+
+
+    #coordinate-axes canvas {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    #results {
+      vertical-align: top;
+      padding: 20px;
+    }
+
+    .result-label {
+      text-align: right;
+      width: 50px;
+      padding-right: 10px;
+    }
+
+    #fire-form tr td {
+      vertical-align: top;
+    }
+
+    #fire-form .form-title {
+      text-align: right;
+      width: 100px;
+      padding-right: 10px;
+    }
+
+    input[type=text] {
+      padding-left: 5px;
+      border: 1px solid #1C1C1C;
+      border-radius: 4px;
+      resize: vertical;
+    }
+
+    #y-checkbox div {
+      display: table-cell;
+      text-align: center;
+      width: 2em;
+      horiz-align: center;
+    }
+
+    #y-checkbox div input {
+      display: block;
+      margin: 0 auto;
+      vertical-align: center;
+    }
+
+    #y-checkbox div label {
+      display: block;
+    }
+
+    .r {
+      width: 2rem;
+      text-align: center;
+    }
+
+    #submit-button {
+      margin-top: 25px;
+      width: 150px;
+      height: 30px;
+    }
+
+    /*#center-row {*/
+    /*  height: available;*/
+    /*}*/
+
+    /*#center-row {*/
+    /*  grid-area: body-scrollable;*/
+    /*  overflow: auto;*/
+    /*  height: 100%;*/
+    /*}*/
+
+    /*#footer {*/
+    /*  height: 50px;*/
+    /*  width: 100%;*/
+    /*  !*grid-area: foot-fixed;*!*/
+    /*}*/
+
+  </style>
 </head>
 <body>
-
-<h1>Initial page</h1>
-
+<table id="document" border=1>
+  <tr>
+    <td id="before-student"></td>
+    <td id="header" colspan="3">
+      <h1 id="name">Пономарев Степан Алексеевич</h1>
+      <h2 id="group">Cтудент группы P33301</h2>
+      <p id="variant">Вариант 34400</p>
+    </td>
+    <td id="after-student"></td>
+  </tr>
+  <tr>
+    <td class="left-col-1"></td>
+    <td class="left-col-2"></td>
+    <td class="center-col">
+      <table id="center-doc" border=1>
+        <tr>
+          <td id="coordinate-axes">
+            <canvas id="axes"></canvas>
+          </td>
+          <td id="results">
+            <div id="result-x">
+              <p class="result-label">X:</p>
+              <p class="reply"></p>
+            </div>
+            <div id="result-y">
+              <p class="result-label">Y:</p>
+              <p class="reply"></p>
+            </div>
+            <div id="result-r">
+              <p class="result-label">R:</p>
+              <p class="reply"></p>
+            </div>
+            <div id="server-reply">
+              <p class="result-label">Result:</p>
+              <p class="reply"></p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td id="request" colspan="2">
+            <form method="get" action="handler.php">
+              <table id="fire-form">
+                <tr id="x-coordinate">
+                  <td class="form-title">X</td>
+                  <td><input type="text" name="x-coordinate" maxlength="10" size="5" placeholder="-3...3"></td>
+                </tr>
+                <tr>
+                  <td class="form-title">Y</td>
+                  <td id="y-checkbox">
+                    <div>
+                      <input type="checkbox" id="y-2" name="y-axe" value="-2">
+                      <label for="y-2">-2</label>
+                    </div>
+                    <div>
+                      <input type="checkbox" id="y-1_5" name="y-axe" value="-1.5">
+                      <label for="y-1_5">-1.5</label>
+                    </div>
+                    <div>
+                      <input type="checkbox" id="y-1" name="y-axe" value="-1">
+                      <label for="y-1">-1</label>
+                    </div>
+                    <div>
+                      <input type="checkbox" id="y-0_5" name="y-axe" value="-0.5">
+                      <label for="y-0_5">-0.5</label>
+                    </div>
+                    <div>
+                      <input type="checkbox" id="y0" name="y-axe" value="0">
+                      <label for="y0">0</label>
+                    </div>
+                    <div>
+                      <input type="checkbox" id="y+0_5" name="y-axe" value="0.5">
+                      <label for="y+0_5">0.5</label>
+                    </div>
+                    <div>
+                      <input type="checkbox" id="y+1" name="y-axe" value="1">
+                      <label for="y+1">1</label>
+                    </div>
+                    <div>
+                      <input type="checkbox" id="y+1_5" name="y-axe" value="1.5">
+                      <label for="y+1_5">1.5</label>
+                    </div>
+                    <div>
+                      <input type="checkbox" id="y+2" name="y-axe" value="2">
+                      <label for="y+2">2</label>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="form-title">R</td>
+                  <td>
+                    <input type="button" class="r" name="r-value" value="1">
+                    <input type="button" class="r" name="r-value" value="1.5">
+                    <input type="button" class="r" name="r-value" value="2">
+                    <input type="button" class="r" name="r-value" value="2.5">
+                    <input type="button" class="r" name="r-value" value="3">
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td><input id="submit-button" type="submit" value="Fire!"></td>
+                </tr>
+              </table>
+            </form>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td class="right-col-2"></td>
+    <td class="right-col-1"></td>
+  </tr>
+<!--  <tr id="center-row">-->
+<!--    <td class="left-col-1"></td>-->
+<!--    <td class="center-col" colspan="3">-->
+<!--      Continue...-->
+<!--    </td>-->
+<!--    <td class="right-col-1"></td>-->
+<!--  </tr>-->
+<!--  <tr id="center-row">-->
+<!--    <td class="left-col-1" colspan="5"></td>-->
+<!--  </tr>-->
+<!--  <tr>-->
+<!--    <td id="footer" colspan="5">Footer</td>-->
+<!--  </tr>-->
+</table>
+<script src="coordinate-axes.js"></script>
 </body>
 </html>
