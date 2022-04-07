@@ -31,8 +31,6 @@ function atArea($x, $y, $r)
     return (atFirstQuarter($x, $y, $r) || atSecondQuarter($x, $y, $r) || atThirdQuarter($x, $y, $r));
 }
 
-session_start();
-
 $x = isset($_GET["x"]) ? $_GET["x"] : 0;
 $y = isset($_GET["y"]) ? str_replace(",", ".", $_GET["y"]) : 0;
 $r = isset($_GET["r"]) ? $_GET["r"] : 2;

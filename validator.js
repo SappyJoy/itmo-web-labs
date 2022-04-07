@@ -90,12 +90,11 @@ function isNumeric(n) {
 
 function createNotification(message) {
   let outputContainer = document.getElementById("output-container");
-    let notificationTableRow = document.createElement("h4");
-    notificationTableRow.innerHTML = "<span class='notification errorStub'></span>";
-    outputContainer.append(notificationTableRow);
-    let span = document.querySelector(".notification");
-    span.textContent = message;
-  // }
+  let notificationTableRow = document.createElement("h4");
+  notificationTableRow.innerHTML = "<span class='notification errorStub'></span>";
+  outputContainer.append(notificationTableRow);
+  let span = document.querySelector(".notification");
+  span.textContent = message;
 }
 
 function clearNotifications() {
