@@ -61,7 +61,7 @@
 
     #coordinate-axes {
       position: relative;
-      width: 60%;
+      width: 50%;
       height: 0;
       padding-bottom: 60%;
     }
@@ -77,13 +77,59 @@
 
     #results {
       vertical-align: top;
-      padding: 20px;
+      position: relative;
+      height: 0;
+      padding-bottom: 60%;
+    }
+
+    #result-table {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      border-collapse: collapse;
+      border-spacing: 0;
+      table-layout: fixed;
+    }
+
+    #result-table tbody,
+    #result-table thead { display: block; }
+
+    #result-table thead tr th {
+      height: 30px;
+      line-height: 30px;
+    }
+
+    #result-table tbody {
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+
+    #result-table tbody td,
+    #result-table thead th {
+      width: 18%;
+      text-align: center;
+    }
+
+    #result-table tbody tr {
+      width: 100%;
+    }
+
+    #result-table tbody td:last-child,
+    #result-table thead th:last-child {
+      border-right: none;
     }
 
     .result-label {
-      text-align: right;
-      width: 50px;
-      padding-right: 10px;
+      border: 1px solid black;
+      background-color: black;
+      color: #FFFCF2;
+    }
+
+    .result-value {
+      border: 1px solid black;
     }
 
     #fire-form tr td {
@@ -131,22 +177,6 @@
       height: 30px;
     }
 
-    /*#center-row {*/
-    /*  height: available;*/
-    /*}*/
-
-    /*#center-row {*/
-    /*  grid-area: body-scrollable;*/
-    /*  overflow: auto;*/
-    /*  height: 100%;*/
-    /*}*/
-
-    /*#footer {*/
-    /*  height: 50px;*/
-    /*  width: 100%;*/
-    /*  !*grid-area: foot-fixed;*!*/
-    /*}*/
-
   </style>
 </head>
 <body>
@@ -170,27 +200,24 @@
             <canvas id="axes"></canvas>
           </td>
           <td id="results">
-            <div id="result-x">
-              <p class="result-label">X:</p>
-              <p class="reply"></p>
-            </div>
-            <div id="result-y">
-              <p class="result-label">Y:</p>
-              <p class="reply"></p>
-            </div>
-            <div id="result-r">
-              <p class="result-label">R:</p>
-              <p class="reply"></p>
-            </div>
-            <div id="server-reply">
-              <p class="result-label">Result:</p>
-              <p class="reply"></p>
-            </div>
+            <table id="result-table">
+              <thead>
+                <tr class="result-labels">
+                  <th class="result-label">X</th>
+                  <th class="result-label">Y</th>
+                  <th class="result-label">R</th>
+                  <th class="result-label">Result</th>
+                  <th class="result-label">Time</th>
+                  <th class="result-label">Benchmark</th>
+                </tr>
+              </thead>
+              <tbody id="result-values">
+              </tbody>
+            </table>
           </td>
         </tr>
         <tr>
           <td id="request" colspan="2">
-            <form method="get" action="handler.php">
               <table id="fire-form">
                 <tr id="x-coordinate">
                   <td class="form-title">X</td>
@@ -249,10 +276,9 @@
                 </tr>
                 <tr>
                   <td></td>
-                  <td><input id="submit-button" type="submit" value="Fire!"></td>
+                  <td><input type="button" id="submit-button" value="Fire!"></td>
                 </tr>
               </table>
-            </form>
           </td>
         </tr>
       </table>
@@ -260,20 +286,15 @@
     <td class="right-col-2"></td>
     <td class="right-col-1"></td>
   </tr>
-<!--  <tr id="center-row">-->
-<!--    <td class="left-col-1"></td>-->
-<!--    <td class="center-col" colspan="3">-->
-<!--      Continue...-->
-<!--    </td>-->
-<!--    <td class="right-col-1"></td>-->
-<!--  </tr>-->
-<!--  <tr id="center-row">-->
-<!--    <td class="left-col-1" colspan="5"></td>-->
-<!--  </tr>-->
-<!--  <tr>-->
-<!--    <td id="footer" colspan="5">Footer</td>-->
-<!--  </tr>-->
+  <tr id="center-row">
+    <td class="left-col-1"></td>
+    <td class="center-col" id="output-container" colspan="3">
+
+    </td>
+    <td class="right-col-1"></td>
+  </tr>
 </table>
 <script src="coordinate-axes.js"></script>
+<script src="validator.js"></script>
 </body>
 </html>
