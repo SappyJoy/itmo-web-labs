@@ -1,6 +1,6 @@
 "use strict";
 
-const grid_size = 67;
+let grid_size;
 const x_axis_starting_point = {number: 1, suffix: ''};
 const y_axis_starting_point = {number: 1, suffix: ''};
 
@@ -22,6 +22,7 @@ window.addEventListener('load', function () {
 
   canvas_width = canvas.offsetWidth;
   canvas_height = canvas.offsetHeight;
+  grid_size = Math.min(canvas_width, canvas_height) / 8;
 
   canvas.setAttribute('width', canvas_width.toString());
   canvas.setAttribute('height', canvas_height.toString());
