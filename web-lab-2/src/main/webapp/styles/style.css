@@ -1,0 +1,185 @@
+* {
+  margin: 0;
+  padding: 0;
+  /*border: 0;*/
+}
+
+body {
+  background-color: #FFFCF2;
+  display: table;
+  width: 100%;
+}
+
+table {
+  width: 100%;
+}
+
+#before-student, #after-student {
+  width: 20%;
+}
+
+.left-col-1, .right-col-1 {
+  width: 20%;
+}
+
+.left-col-2, .right-col-2 {
+  width: 5%;
+}
+
+#header {
+  background-color: #EEF0F2;
+  width: 900px;
+  display: table-cell;
+  text-align: left;
+  padding: 40px 60px;
+
+  font-family: serif;
+  color: black;
+
+  border-top-left-radius: 37px 140px;
+  border-top-right-radius: 23px 130px;
+  border-bottom-left-radius: 110px 19px;
+  border-bottom-right-radius: 120px 24px;
+  border: dashed 3px #1C1C1C;
+
+  font-size: 17px;
+  line-height: 28px;
+  transform: rotate(-1deg);
+  box-shadow: 3px 15px 8px -10px rgba(0, 0, 0, 0.3);
+  transition: all 0.13s ease-in;
+}
+
+#header:hover {
+  transform: translateY(-10px) rotate(1deg);
+  box-shadow: 3px 15px 8px -10px rgba(0, 0, 0, 0.3);
+}
+
+#header h1 {
+  font-size: 2rem;
+}
+
+#header h2 {
+  font-size: 1.4rem;
+}
+
+#header p {
+  font-size: 1rem;
+}
+
+#coordinate-axes {
+  position: relative;
+  width: 50%;
+  height: 0;
+  padding-bottom: 60%;
+}
+
+
+#coordinate-axes canvas {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+#results {
+  vertical-align: top;
+  position: relative;
+  height: 0;
+  padding-bottom: 60%;
+}
+
+#result-table {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+
+#result-table tbody,
+#result-table thead { display: block; }
+
+#result-table thead tr th {
+  height: 30px;
+  line-height: 30px;
+}
+
+#result-table tbody {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+
+#result-table tbody td,
+#result-table thead th {
+  width: 18%;
+  text-align: center;
+}
+
+#result-table tbody tr {
+  width: 100%;
+}
+
+#result-table tbody td:last-child,
+#result-table thead th:last-child {
+  border-right: none;
+}
+
+.result-label {
+  border: 1px solid black;
+  background-color: black;
+  color: #FFFCF2;
+}
+
+.result-value {
+  border: 1px solid black;
+}
+
+#fire-form tr td {
+  vertical-align: top;
+}
+
+#fire-form .form-title {
+  text-align: right;
+  width: 100px;
+  padding-right: 10px;
+}
+
+input[type=text] {
+  padding-left: 5px;
+  border: 1px solid #1C1C1C;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+#x-checkbox div {
+  display: table-cell;
+  text-align: center;
+  width: 2em;
+  horiz-align: center;
+}
+
+#x-checkbox div input {
+  display: block;
+  margin: 0 auto;
+  vertical-align: center;
+}
+
+#x-checkbox div label {
+  display: block;
+}
+
+.r {
+  width: 2rem;
+  text-align: center;
+}
+
+#submit-button {
+  margin-top: 25px;
+  width: 150px;
+  height: 30px;
+}

@@ -2,7 +2,7 @@
 
 # Maven
 **/target/
-!**/.mvn/wrapper/maven-wrapper.jar
+web-lab-2/.mvn/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
