@@ -2,3 +2,4 @@
 
 - [Проект 1](/web-lab-1) `PHP`
 - [Проект 2](/web-lab-2) `Java (JSP)`
+- [Проект 3](/web-lab-3) `Java (JSF)`
