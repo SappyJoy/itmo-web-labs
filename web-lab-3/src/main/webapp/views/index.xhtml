@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Lab 3</title>
+    <h:outputStylesheet library = "css" name = "styles.css"  />
+</h:head>
+
+<h:body>
+    <table id="document">
+    <tr>
+        <td id="before-student"/>
+        <td id="header" colspan="3">
+            <h1 id="name">Пономарев Степан Алексеевич</h1>
+            <h2 id="group">Cтудент группы P33301</h2>
+            <p id="variant">Вариант 34401</p>
+        </td>
+        <td id="after-student"/>
+    </tr>
+    <tr>
+        <td class="left-col-1"/>
+        <td class="left-col-2"/>
+        <td class="clock">
+            <h:form>
+                <p:clock displayMode="analog" mode="server" autoSync="true" syncInterval="10000"/>
+                <p:clock displayMode="digital" pattern="dd.MM.yyyy" mode="server" autoSync="true" syncInterval="10000"/>
+            </h:form>
+            <h:form>
+                <p:button outcome="to_main" value="Go to test Lab" icon="pi" style="text-align: center"/>
+            </h:form>
+        </td>
+        <td class="right-col-2"/>
+        <td class="right-col-1"/>
+    </tr>
+    <tr id="center-row">
+        <td class="left-col-1"/>
+        <td class="center-col" id="output-container" colspan="3">
+
+        </td>
+        <td class="right-col-1"/>
+    </tr>
+    </table>
+
+</h:body>
+
+</html>
